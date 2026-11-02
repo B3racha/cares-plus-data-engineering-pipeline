@@ -1,22 +1,62 @@
-# Python
+
+# Python cache and compiled files
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+
+# Python environments
 venv/
 .venv/
+env/
+ENV/
+env.bak/
+venv.bak/
 
 # Environment variables and secrets
 .env
 .env.*
 !.env.example
-
-# AWS credentials
+.envrc
 .aws/
+.pypirc
 
-# Temporary files
+# Temporary and private project data
 *.zip
 *.log
 *.parquet
 *.csv
 
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+.Python
+
+# Testing and coverage
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.hypothesis/
+
 # Jupyter
 .ipynb_checkpoints/
+profile_default/
+
+# Type checking and linting
+.mypy_cache/
+.pyre/
+.pytype/
+.ruff_cache/
+
+# IDE and editor
+.idea/
+.vscode/
+
+# Other temporary files
+tempCodeRunnerFile.py
