@@ -1,4 +1,10 @@
+
 # Cares Plus – AWS Data Engineering Pipeline
+
+![AWS](https://img.shields.io/badge/Cloud-AWS-orange)
+![Python](https://img.shields.io/badge/Language-Python-blue)
+![SQL](https://img.shields.io/badge/Query-SQL-lightgrey)
+![Project](https://img.shields.io/badge/Project-Learning%20%26%20Portfolio-green)
 
 ## Project Overview
 
@@ -62,7 +68,7 @@ flowchart TD
     J --> L
 ```
 
-*Note: Athena queries supported datasets directly in S3, independently of the Redshift loading process. The diagram represents the main processing components, not a claim that every trigger and workflow has been fully automated.*
+*Note: The diagram represents the main processing components. Athena queries supported datasets directly in S3, independently of the Redshift loading process. It does not imply that every trigger and workflow has been fully automated.*
 
 ## Pipeline Description
 
@@ -88,12 +94,12 @@ The support tickets workflow involves:
 5. Storing processed files in Amazon S3.
 6. Loading Parquet files into the `public.support_tickets` table in Amazon Redshift.
 
-### 3. Amazon Redshift Data Loading
+### 3. Redshift Data Loading
 
 Two separate Python Lambda functions handle the Redshift loading operations:
 
-- `incremental_data_load_logs.py` – loads processed support log Parquet files.
-- `incremental_data_load_tickets.py` – loads processed support ticket Parquet files.
+- **`incremental_data_load_logs.py`:** Loads processed support log Parquet files into `public.support_logs`.
+- **`incremental_data_load_tickets.py`:** Loads processed support ticket Parquet files into `public.support_tickets`.
 
 Both functions use the Redshift `COPY` command to load data from Amazon S3 into their respective Redshift tables.
 
@@ -114,7 +120,6 @@ cares-plus-data-engineering-pipeline/
 ├── .gitignore
 │
 └── src/
-    │
     ├── support_logs/
     │   └── lambda_function.py
     │
